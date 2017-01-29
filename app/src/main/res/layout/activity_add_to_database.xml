@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_display_message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.aapl.apptest.AddtoDatabaseActivity">
+
+    <TextView
+        android:text="Proteins:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_proteins"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_below="@+id/textView_fats"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:text="Fats:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_fats"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_below="@+id/textView_Carbs"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:text="Measurement:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_measurement"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/textView_proteins"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Carbs:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_Carbs"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/textView_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Measure Value:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_measurement"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView_value"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_name"
+        android:hint="Food Name"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_name"
+        android:layout_alignBottom="@+id/textView_name"
+        android:layout_toRightOf="@+id/textView_name"
+        android:layout_toEndOf="@+id/textView_name"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_carbs"
+        android:hint="Carbs"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_Carbs"
+        android:layout_alignBottom="@+id/textView_Carbs"
+        android:layout_alignLeft="@+id/editText_name"
+        android:layout_alignStart="@+id/editText_name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_proteins"
+        android:hint="Proteins"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_proteins"
+        android:layout_alignBottom="@+id/textView_proteins"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_fats"
+        android:hint="Fats"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_fats"
+        android:layout_alignBottom="@+id/textView_fats"
+        android:layout_toRightOf="@+id/textView_fats"
+        android:layout_toEndOf="@+id/textView_fats" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_measurement"
+        android:hint="ex: g., oz., etc."
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_measurement"
+        android:layout_alignBottom="@+id/textView_measurement"
+        android:layout_toRightOf="@+id/textView_value"
+        android:layout_toEndOf="@+id/textView_value" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_value"
+        android:hint="Numerical value"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/textView_value"
+        android:layout_alignBottom="@+id/textView_value"
+        android:layout_toRightOf="@+id/textView_value"
+        android:layout_toEndOf="@+id/textView_value"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+
+    <Button
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_add"
+        android:layout_alignRight="@+id/editText_fats"
+        android:layout_alignEnd="@+id/editText_fats"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/button_delete" />
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/button_add"
+        android:layout_below="@+id/editText_value"
+        android:layout_alignLeft="@+id/editText_fats"
+        android:layout_alignStart="@+id/editText_fats" />
+
+    <Button
+        android:text="Database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button_viewData"
+        android:layout_below="@+id/button_delete"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_name"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbar_selection"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
