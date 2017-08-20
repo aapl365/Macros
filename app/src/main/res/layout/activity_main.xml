@@ -37,19 +37,17 @@
                 android:id="@+id/button_toCalc"
                 android:layout_alignBottom="@+id/toolbar2"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:onClick="viewCalc"/>
+                android:layout_alignParentStart="true"/>
 
             <Button
                 android:text="Database"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:id="@+id/button3"
+                android:id="@+id/button_toDb"
                 android:layout_alignBottom="@+id/toolbar2"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:onClick="viewDatabase"/>
+                android:layout_alignParentStart="true"/>
 
         </LinearLayout>
 

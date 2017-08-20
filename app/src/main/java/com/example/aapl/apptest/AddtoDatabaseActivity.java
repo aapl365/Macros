@@ -212,21 +212,4 @@ public class AddtoDatabaseActivity extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
-
-    /*************** Buttons for screen selection ***************/
-    public void addtoDatabase(View view) {
-        Intent intent = new Intent(this, AddtoDatabaseActivity.class);
-        startActivity(intent);
-    }
-
-    public void viewDatabase(View view){
-        Intent intent = new Intent(this, DatabaseWindow.class);
-        startActivity(intent);
-    }
-
-    public void viewCalc(View view){
-        Intent intent = new Intent(this, SimplexCalcActivity.class);
-        startActivity(intent);
-    }
-    /* End functions for buttons*/
 }

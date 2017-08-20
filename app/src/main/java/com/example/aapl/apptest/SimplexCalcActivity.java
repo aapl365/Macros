@@ -23,9 +23,10 @@ import java.util.Arrays;
 public class SimplexCalcActivity extends AppCompatActivity {
 
     SimplexHelper simplex;
+    ActivityChangeButtonHandler activityButtonHandler;
     EditText editCarbsSol, editFatsSol, editProteinsSol, editScrapeSearch;
     TextView textResuts;
-    Button button_calc, button_clear, button_scrape;
+    Button button_calc, button_clear, button_scrape, button_toCalc, button_toDb;;
     boolean asFood = false;
     boolean isScraping = false;
 
@@ -34,17 +35,28 @@ public class SimplexCalcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simplex_calc);
         simplex = SimplexHelper.getInstance();
+        activityButtonHandler = new ActivityChangeButtonHandler(this);
 
+        // Setting views
         editCarbsSol = (EditText)findViewById(R.id.editText_DesiredCarbs);
         editFatsSol = (EditText)findViewById(R.id.editText_DesiredFats);
         editProteinsSol = (EditText)findViewById(R.id.editText_DesiredProteins);
         button_calc = (Button) findViewById(R.id.button_calcSimplex);
         button_clear = (Button) findViewById(R.id.button_clearCalc);
+        button_toCalc = (Button) findViewById(R.id.button_toCalc);
+        button_toDb = (Button) findViewById(R.id.button_toDb);
+
+        // Setting button onClick
+        button_toCalc.setOnClickListener(activityButtonHandler);
+        button_toDb.setOnClickListener(activityButtonHandler);
+
         // remove after testing
         button_scrape = (Button) findViewById(R.id.button_showScrape);
         editScrapeSearch = (EditText)findViewById(R.id.editText_ScrapeWord);
         textResuts = (TextView)findViewById(R.id.textView2);
         // end removal
+
+        // Setting button onClick
         simplexCalculation();
         clearCalc();
         scrapeWiki();
@@ -206,22 +218,4 @@ public class SimplexCalcActivity extends AppCompatActivity {
             Toast.makeText(SimplexCalcActivity.this, "Could not connect", Toast.LENGTH_LONG).show();
         }
     }
-
-    /*************** Buttons for screen selection ***************/
-    public void addtoDatabase(View view) {
-        Intent intent = new Intent(this, AddtoDatabaseActivity.class);
-        startActivity(intent);
-    }
-
-    public void viewDatabase(View view){
-        Intent intent = new Intent(this, DatabaseWindow.class);
-        startActivity(intent);
-    }
-
-    public void viewCalc(View view){
-        Intent intent = new Intent(this, SimplexCalcActivity.class);
-        startActivity(intent);
-    }
-    /* End functions for buttons*/
-
 }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -20,6 +21,9 @@ import static java.lang.Math.toIntExact;
 public class DatabaseWindow extends AppCompatActivity {
     DatabaseHelper myDB;
     SimplexHelper simplex;
+    ActivityChangeButtonHandler activityButtonHandler;
+
+    Button button_toCalc, button_toDb;
 
     /**
      * Contains two onItemClickListeners for moving database around.
@@ -31,10 +35,21 @@ public class DatabaseWindow extends AppCompatActivity {
         setContentView(R.layout.activity_database_window);
         myDB = DatabaseHelper.getInstance(this);
         simplex = SimplexHelper.getInstance();
+        activityButtonHandler = new ActivityChangeButtonHandler(this);
+        final FoodCursorAdapter foodAdapt = new FoodCursorAdapter(this, myDB.getAllData());
 
+
+        // Setting views
         ListView dataLV = (ListView)findViewById(R.id.ListView_database);
         final ListView solutionLV = (ListView)findViewById(R.id.ListView_solution);
-        final FoodCursorAdapter foodAdapt = new FoodCursorAdapter(this, myDB.getAllData());
+        button_toCalc = (Button) findViewById(R.id.button_toCalc);
+        button_toDb = (Button) findViewById(R.id.button_toDb);
+
+        // Setting button onClick
+        button_toCalc.setOnClickListener(activityButtonHandler);
+        button_toDb.setOnClickListener(activityButtonHandler);
+
+        // Set dataLV Adapter
         dataLV.setAdapter(foodAdapt);
 
         //populates solutionLV with current FoodList contents
@@ -132,8 +147,7 @@ public class DatabaseWindow extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        // not sure what view to use, or if it matters
-        addtoDatabase(findViewById(R.id.button_showScrape));
+        activityButtonHandler.viewAddtoDatabase();
 
         return super.onOptionsItemSelected(item);
     }
@@ -157,21 +171,4 @@ public class DatabaseWindow extends AppCompatActivity {
 
         return dummy;
     }
-
-    /*************** Buttons for screen selection ***************/
-    public void addtoDatabase(View view) {
-        Intent intent = new Intent(this, AddtoDatabaseActivity.class);
-        startActivity(intent);
-    }
-
-    public void viewDatabase(View view){
-        Intent intent = new Intent(this, DatabaseWindow.class);
-        startActivity(intent);
-    }
-
-    public void viewCalc(View view){
-        Intent intent = new Intent(this, SimplexCalcActivity.class);
-        startActivity(intent);
-    }
-    /* End functions for buttons*/
 }

@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.AppTest.MESSAGE";
     DatabaseHelper FoodDB;
     SimplexHelper simplex;
+    ActivityChangeButtonHandler activityButtonHandler;
+
+    Button button_toCalc, button_toDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,22 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FoodDB = DatabaseHelper.getInstance(this);
         simplex = SimplexHelper.getInstance();
-    }
+        activityButtonHandler = new ActivityChangeButtonHandler(this);
 
-    /*************** Buttons for screen selection ***************/
-    public void addtoDatabase(View view) {
-        Intent intent = new Intent(this, AddtoDatabaseActivity.class);
-        startActivity(intent);
-    }
+        // Setting views
+        button_toCalc = (Button) findViewById(R.id.button_toCalc);
+        button_toDb = (Button) (Button) findViewById(R.id.button_toDb);
 
-    public void viewDatabase(View view){
-        Intent intent = new Intent(this, DatabaseWindow.class);
-        startActivity(intent);
+        // Setting button onClick
+        button_toCalc.setOnClickListener(activityButtonHandler);
+        button_toDb.setOnClickListener(activityButtonHandler);
     }
-
-    public void viewCalc(View view){
-        Intent intent = new Intent(this, SimplexCalcActivity.class);
-        startActivity(intent);
-    }
-    /* End functions for buttons*/
 }
